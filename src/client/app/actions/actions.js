@@ -19,39 +19,45 @@ export const EDIT_ORDER = 'EDIT_ORDER';
 //                     }
 
 
-export function openOrder(user, ticket, payment) {
+export function openOrder(user_id, ticket_id, payment_id, price) {
     return {
         type: OPEN_ORDER,
-        user,
-        ticket,
-        payment
+        payload: {
+            user_id,
+            ticket_id,
+            payment_id,
+            price
+
+        }
     }
 }
 
-export function fillOrder(user, order, ticket, payment) {
+export function fillOrder(user_id, order_id) {
     return {
         type: FILL_ORDER,
-        user,
-        order,
-        ticket,
-        payment
+        payload: {
+            user_id,
+            order_id,
+        }
     }
 }
 
-export function deleteOrder(user, order) {
+export function deleteOrder(order) {
     return {
         type: DELETE_ORDER,
-        user,
-        order
+        payload: {
+            order
+        }
     }
 }
 
-export function editOrder(user, order, field, change) {
+export function editOrder(order, field, newValue) {
     return {
         type: EDIT_ORDER,
-        user,
-        order,
-        field,
-        change
+        payload: {
+            order,
+            field,
+            newValue
+        }
     }
 }

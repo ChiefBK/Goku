@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {getOrderType} from '../util';
 
 class OpenOrdersComponent extends React.Component {
 
@@ -11,21 +12,14 @@ class OpenOrdersComponent extends React.Component {
     }
 
     storeChanged() {
-        console.log("STORE CHANGED");
-
         let orders = this.props.store.getState().orders;
         let user = 'user1';
 
         let user_orders = orders.filter((order) => {
-            console.log("ORDER");
-            console.log(order.user == user);
-
-            return order.user == user;
+            return order.user_id == user;
         });
 
         this.setState({openOrders: user_orders});
-
-        console.log(this.state);
     }
 
     render() {
@@ -33,10 +27,13 @@ class OpenOrdersComponent extends React.Component {
             return (
                 <tr>
                     <td>
-                        {order.user}
+                        {order.user_id}
                     </td>
                     <td>
-                        {order.ticket}
+                        {order.price}
+                    </td>
+                    <td>
+                        {getOrderType(order)}
                     </td>
                 </tr>
             )

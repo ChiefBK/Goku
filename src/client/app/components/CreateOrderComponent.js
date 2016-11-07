@@ -2,34 +2,54 @@ import React from 'react';
 
 import {openOrder} from '../actions/actions';
 
+const initialState = {user: '', ticket: '', payment: '', price: ''};
+
 class CreateOrderComponent extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {user: '', ticket: '', type: '', price: ''};
+        this.state = initialState;
     }
 
     handleSubmit(event) {
-        // console.log("EVENT");
-        // console.log(event.target.value);
+        this.props.store.dispatch(openOrder(this.state.user, this.state.ticket, this.state.payment, this.state.price));
 
-        console.log(this.state);
+        this.price_input.value = "";
+        this.user_input.value = "";
+        this.ticket_input.value = "";
+        this.payment_input.value = "";
 
-        this.props.store.dispatch(openOrder(this.state.user, this.state.ticket, null));
+        this.ticket_input.disabled = false;
+        this.payment_input.disabled = false;
+
+        this.setState(initialState);
     }
 
 
     handleChange(property, event) {
-        // console.log(property);
-        // console.log(event.target.value);
-
         let change = {};
-        change[property] = event.target.value;
+        let value = event.target.value;
+
+        if(property == 'ticket'){
+            if (value.length > 0){
+                document.getElementById('input-payment').disabled = true;
+            }
+            else {
+                document.getElementById('input-payment').disabled = false;
+            }
+        }
+        else if (property == 'payment'){
+            if(value.length > 0){
+                document.getElementById('input-ticket').disabled = true;
+            }
+            else{
+                document.getElementById('input-ticket').disabled = false;
+            }
+        }
+
+        change[property] = value;
 
         this.setState(change);
-
-        // console.log(this.state);
-
     }
 
     render() {
@@ -40,21 +60,19 @@ class CreateOrderComponent extends React.Component {
                     <tbody>
                     <tr>
                         <td>Price:</td>
-                        <td><input type="number" onChange={this.handleChange.bind(this, 'price')}/></td>
+                        <td><input id="input-price" type="number" onChange={this.handleChange.bind(this, 'price')} ref={(input) => this.price_input = input}/></td>
                     </tr>
                     <tr>
                         <td>Ticket:</td>
-                        <td><input type="text" onChange={this.handleChange.bind(this, 'ticket')}/></td>
+                        <td><input id="input-ticket" type="text" onChange={this.handleChange.bind(this, 'ticket')} ref={(input) => this.ticket_input = input}/></td>
+                    </tr>
+                    <tr>
+                        <td>Payment:</td>
+                        <td><input id="input-payment" type="text" onChange={this.handleChange.bind(this, 'payment')} ref={(input) => this.payment_input = input}/></td>
                     </tr>
                     <tr>
                         <td>User:</td>
-                        <td><input type="text" onChange={this.handleChange.bind(this, 'user')}/></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" name="order-type" value="buy-order" onChange={this.handleChange.bind(this, 'type')}/><label htmlFor="buy-order">Buy</label>
-                            <input type="radio" name="order-type" value="sell-order" onChange={this.handleChange.bind(this, 'type')}/><label htmlFor="sell-order">Sell</label>
-                        </td>
+                        <td><input id="input-user" type="text" onChange={this.handleChange.bind(this, 'user')} ref={(input) => this.user_input = input}/></td>
                     </tr>
                     <tr>
                         <td>

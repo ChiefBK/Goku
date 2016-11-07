@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
+var BUILD_DIR = path.resolve(__dirname, 'public');
 var APP_DIR = path.resolve(__dirname, 'src/client/app');
 var CSS_DIR = path.resolve(__dirname, 'src/client/app/css');
 var MATERIALIZE_DIR = path.resolve(__dirname, 'node_modules/materialize-css');

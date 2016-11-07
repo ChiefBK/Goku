@@ -55,7 +55,7 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 34);
 	
-	var _ExchangeComponent = __webpack_require__(/*! ./components/ExchangeComponent */ 173);
+	var _ExchangeComponent = __webpack_require__(/*! ./components/ExchangeComponent */ 172);
 	
 	var _ExchangeComponent2 = _interopRequireDefault(_ExchangeComponent);
 	
@@ -21944,8 +21944,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 172 */,
-/* 173 */
+/* 172 */
 /*!********************************************************!*\
   !*** ./src/client/app/components/ExchangeComponent.js ***!
   \********************************************************/
@@ -21963,21 +21962,21 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _redux = __webpack_require__(/*! redux */ 178);
+	var _redux = __webpack_require__(/*! redux */ 173);
 	
-	var _reduxThunk = __webpack_require__(/*! redux-thunk */ 193);
+	var _reduxThunk = __webpack_require__(/*! redux-thunk */ 188);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _CreateOrderComponent = __webpack_require__(/*! ./CreateOrderComponent */ 175);
+	var _CreateOrderComponent = __webpack_require__(/*! ./CreateOrderComponent */ 189);
 	
 	var _CreateOrderComponent2 = _interopRequireDefault(_CreateOrderComponent);
 	
-	var _OpenOrdersComponent = __webpack_require__(/*! ./OpenOrdersComponent */ 194);
+	var _OpenOrdersComponent = __webpack_require__(/*! ./OpenOrdersComponent */ 191);
 	
 	var _OpenOrdersComponent2 = _interopRequireDefault(_OpenOrdersComponent);
 	
-	var _reducers = __webpack_require__(/*! ../reducers/reducers */ 176);
+	var _reducers = __webpack_require__(/*! ../reducers/reducers */ 194);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -22021,322 +22020,7 @@
 	exports.default = ExchangeComponent;
 
 /***/ },
-/* 174 */,
-/* 175 */
-/*!***********************************************************!*\
-  !*** ./src/client/app/components/CreateOrderComponent.js ***!
-  \***********************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _actions = __webpack_require__(/*! ../actions/actions */ 177);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var CreateOrderComponent = function (_React$Component) {
-	    _inherits(CreateOrderComponent, _React$Component);
-	
-	    function CreateOrderComponent(props) {
-	        _classCallCheck(this, CreateOrderComponent);
-	
-	        var _this = _possibleConstructorReturn(this, (CreateOrderComponent.__proto__ || Object.getPrototypeOf(CreateOrderComponent)).call(this, props));
-	
-	        _this.state = { user: '', ticket: '', type: '', price: '' };
-	        return _this;
-	    }
-	
-	    _createClass(CreateOrderComponent, [{
-	        key: 'handleSubmit',
-	        value: function handleSubmit(event) {
-	            // console.log("EVENT");
-	            // console.log(event.target.value);
-	
-	            console.log(this.state);
-	
-	            this.props.store.dispatch((0, _actions.openOrder)(this.state.user, this.state.ticket, null));
-	        }
-	    }, {
-	        key: 'handleChange',
-	        value: function handleChange(property, event) {
-	            // console.log(property);
-	            // console.log(event.target.value);
-	
-	            var change = {};
-	            change[property] = event.target.value;
-	
-	            this.setState(change);
-	
-	            // console.log(this.state);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { id: 'create-order' },
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    'CREATE ORDER'
-	                ),
-	                _react2.default.createElement(
-	                    'table',
-	                    null,
-	                    _react2.default.createElement(
-	                        'tbody',
-	                        null,
-	                        _react2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _react2.default.createElement(
-	                                'td',
-	                                null,
-	                                'Price:'
-	                            ),
-	                            _react2.default.createElement(
-	                                'td',
-	                                null,
-	                                _react2.default.createElement('input', { type: 'number', onChange: this.handleChange.bind(this, 'price') })
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _react2.default.createElement(
-	                                'td',
-	                                null,
-	                                'Ticket:'
-	                            ),
-	                            _react2.default.createElement(
-	                                'td',
-	                                null,
-	                                _react2.default.createElement('input', { type: 'text', onChange: this.handleChange.bind(this, 'ticket') })
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _react2.default.createElement(
-	                                'td',
-	                                null,
-	                                'User:'
-	                            ),
-	                            _react2.default.createElement(
-	                                'td',
-	                                null,
-	                                _react2.default.createElement('input', { type: 'text', onChange: this.handleChange.bind(this, 'user') })
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _react2.default.createElement(
-	                                'td',
-	                                null,
-	                                _react2.default.createElement('input', { type: 'radio', name: 'order-type', value: 'buy-order', onChange: this.handleChange.bind(this, 'type') }),
-	                                _react2.default.createElement(
-	                                    'label',
-	                                    { htmlFor: 'buy-order' },
-	                                    'Buy'
-	                                ),
-	                                _react2.default.createElement('input', { type: 'radio', name: 'order-type', value: 'sell-order', onChange: this.handleChange.bind(this, 'type') }),
-	                                _react2.default.createElement(
-	                                    'label',
-	                                    { htmlFor: 'sell-order' },
-	                                    'Sell'
-	                                )
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _react2.default.createElement(
-	                                'td',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'button',
-	                                    { onClick: this.handleSubmit.bind(this) },
-	                                    'Submit'
-	                                )
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return CreateOrderComponent;
-	}(_react2.default.Component);
-	
-	exports.default = CreateOrderComponent;
-
-/***/ },
-/* 176 */
-/*!*********************************************!*\
-  !*** ./src/client/app/reducers/reducers.js ***!
-  \*********************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _actions = __webpack_require__(/*! ../actions/actions */ 177);
-	
-	var _redux = __webpack_require__(/*! redux */ 178);
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-	
-	// TODO - validate actions
-	// TODO - create order model
-	// TODO - generate UUIDs for orders
-	
-	function orders() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	    var action = arguments[1];
-	
-	    switch (action.type) {
-	        case _actions.OPEN_ORDER:
-	            var newOrder = {};
-	            newOrder['user'] = action.user;
-	
-	            if (action.ticket) {
-	                newOrder['ticket'] = action.ticket;
-	            } else if (action.payment) {
-	                newOrder['payment'] = action.payment;
-	            }
-	
-	            return [].concat(_toConsumableArray(state), [newOrder]);
-	
-	        case _actions.FILL_ORDER:
-	            return state.map(function (order, index) {
-	                if (order.id != action.order) {
-	                    return Object.assign({}, order);
-	                }
-	            });
-	
-	        case _actions.DELETE_ORDER:
-	            return state.map(function (order, index) {
-	                if (order.id != action.order) {
-	                    return Object.assign({}, order);
-	                }
-	            });
-	
-	        case _actions.EDIT_ORDER:
-	            return state.map(function (order, index) {
-	                if (order.id == action.order) {
-	                    var change = {};
-	                    change[action.field] = action.change;
-	                    return Object.assign({}, order, change);
-	                }
-	            });
-	        default:
-	            return state;
-	    }
-	}
-	
-	var exchange = (0, _redux.combineReducers)({
-	    orders: orders
-	});
-	
-	exports.default = exchange;
-
-/***/ },
-/* 177 */
-/*!*******************************************!*\
-  !*** ./src/client/app/actions/actions.js ***!
-  \*******************************************/
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.openOrder = openOrder;
-	exports.fillOrder = fillOrder;
-	exports.deleteOrder = deleteOrder;
-	exports.editOrder = editOrder;
-	// Opening a order
-	// Filling a order
-	// Deleting an order
-	// Editing an order
-	
-	var OPEN_ORDER = exports.OPEN_ORDER = 'OPEN_ORDER';
-	var FILL_ORDER = exports.FILL_ORDER = 'FILL_ORDER';
-	var DELETE_ORDER = exports.DELETE_ORDER = 'DELETE_ORDER';
-	var EDIT_ORDER = exports.EDIT_ORDER = 'EDIT_ORDER';
-	
-	// {
-	//     Type: “Open”, “Fill”, “Delete”, or “Edit”
-	// 	User: <user-id>
-	//         Order: <order-id>
-	//         Field: (for Edit) <string> the field of the order that is being changed
-	//         Change: (for Edit) <string or int or float> the value that the Field should be changed to
-	//             Ticket: (for Fill or Open) <ticket-id> required to fill a buy order or open a sell order
-	//                 Payment: (for Fill or Open) <payment-id> required to open a buy order or fill a sell order
-	//                     }
-	
-	
-	function openOrder(user, ticket, payment) {
-	    return {
-	        type: OPEN_ORDER,
-	        user: user,
-	        ticket: ticket,
-	        payment: payment
-	    };
-	}
-	
-	function fillOrder(user, order, ticket, payment) {
-	    return {
-	        type: FILL_ORDER,
-	        user: user,
-	        order: order,
-	        ticket: ticket,
-	        payment: payment
-	    };
-	}
-	
-	function deleteOrder(user, order) {
-	    return {
-	        type: DELETE_ORDER,
-	        user: user,
-	        order: order
-	    };
-	}
-	
-	function editOrder(user, order, field, change) {
-	    return {
-	        type: EDIT_ORDER,
-	        user: user,
-	        order: order,
-	        field: field,
-	        change: change
-	    };
-	}
-
-/***/ },
-/* 178 */
+/* 173 */
 /*!******************************!*\
   !*** ./~/redux/lib/index.js ***!
   \******************************/
@@ -22347,27 +22031,27 @@
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 	
-	var _createStore = __webpack_require__(/*! ./createStore */ 179);
+	var _createStore = __webpack_require__(/*! ./createStore */ 174);
 	
 	var _createStore2 = _interopRequireDefault(_createStore);
 	
-	var _combineReducers = __webpack_require__(/*! ./combineReducers */ 188);
+	var _combineReducers = __webpack_require__(/*! ./combineReducers */ 183);
 	
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 	
-	var _bindActionCreators = __webpack_require__(/*! ./bindActionCreators */ 190);
+	var _bindActionCreators = __webpack_require__(/*! ./bindActionCreators */ 185);
 	
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 	
-	var _applyMiddleware = __webpack_require__(/*! ./applyMiddleware */ 191);
+	var _applyMiddleware = __webpack_require__(/*! ./applyMiddleware */ 186);
 	
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 	
-	var _compose = __webpack_require__(/*! ./compose */ 192);
+	var _compose = __webpack_require__(/*! ./compose */ 187);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
-	var _warning = __webpack_require__(/*! ./utils/warning */ 189);
+	var _warning = __webpack_require__(/*! ./utils/warning */ 184);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -22391,7 +22075,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 179 */
+/* 174 */
 /*!************************************!*\
   !*** ./~/redux/lib/createStore.js ***!
   \************************************/
@@ -22403,11 +22087,11 @@
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 	
-	var _isPlainObject = __webpack_require__(/*! lodash/isPlainObject */ 180);
+	var _isPlainObject = __webpack_require__(/*! lodash/isPlainObject */ 175);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _symbolObservable = __webpack_require__(/*! symbol-observable */ 184);
+	var _symbolObservable = __webpack_require__(/*! symbol-observable */ 179);
 	
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 	
@@ -22660,14 +22344,14 @@
 	}
 
 /***/ },
-/* 180 */
+/* 175 */
 /*!***********************************!*\
   !*** ./~/lodash/isPlainObject.js ***!
   \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var getPrototype = __webpack_require__(/*! ./_getPrototype */ 181),
-	    isObjectLike = __webpack_require__(/*! ./isObjectLike */ 183);
+	var getPrototype = __webpack_require__(/*! ./_getPrototype */ 176),
+	    isObjectLike = __webpack_require__(/*! ./isObjectLike */ 178);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -22737,13 +22421,13 @@
 
 
 /***/ },
-/* 181 */
+/* 176 */
 /*!***********************************!*\
   !*** ./~/lodash/_getPrototype.js ***!
   \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(/*! ./_overArg */ 182);
+	var overArg = __webpack_require__(/*! ./_overArg */ 177);
 	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -22752,7 +22436,7 @@
 
 
 /***/ },
-/* 182 */
+/* 177 */
 /*!******************************!*\
   !*** ./~/lodash/_overArg.js ***!
   \******************************/
@@ -22776,7 +22460,7 @@
 
 
 /***/ },
-/* 183 */
+/* 178 */
 /*!**********************************!*\
   !*** ./~/lodash/isObjectLike.js ***!
   \**********************************/
@@ -22814,17 +22498,17 @@
 
 
 /***/ },
-/* 184 */
+/* 179 */
 /*!**************************************!*\
   !*** ./~/symbol-observable/index.js ***!
   \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! ./lib/index */ 185);
+	module.exports = __webpack_require__(/*! ./lib/index */ 180);
 
 
 /***/ },
-/* 185 */
+/* 180 */
 /*!******************************************!*\
   !*** ./~/symbol-observable/lib/index.js ***!
   \******************************************/
@@ -22836,7 +22520,7 @@
 	  value: true
 	});
 	
-	var _ponyfill = __webpack_require__(/*! ./ponyfill */ 187);
+	var _ponyfill = __webpack_require__(/*! ./ponyfill */ 182);
 	
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 	
@@ -22859,10 +22543,10 @@
 	
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(/*! ./../../webpack/buildin/module.js */ 186)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(/*! ./../../webpack/buildin/module.js */ 181)(module)))
 
 /***/ },
-/* 186 */
+/* 181 */
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
   \***********************************/
@@ -22881,7 +22565,7 @@
 
 
 /***/ },
-/* 187 */
+/* 182 */
 /*!*********************************************!*\
   !*** ./~/symbol-observable/lib/ponyfill.js ***!
   \*********************************************/
@@ -22912,7 +22596,7 @@
 	};
 
 /***/ },
-/* 188 */
+/* 183 */
 /*!****************************************!*\
   !*** ./~/redux/lib/combineReducers.js ***!
   \****************************************/
@@ -22923,13 +22607,13 @@
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 	
-	var _createStore = __webpack_require__(/*! ./createStore */ 179);
+	var _createStore = __webpack_require__(/*! ./createStore */ 174);
 	
-	var _isPlainObject = __webpack_require__(/*! lodash/isPlainObject */ 180);
+	var _isPlainObject = __webpack_require__(/*! lodash/isPlainObject */ 175);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _warning = __webpack_require__(/*! ./utils/warning */ 189);
+	var _warning = __webpack_require__(/*! ./utils/warning */ 184);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -23063,7 +22747,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 189 */
+/* 184 */
 /*!**************************************!*\
   !*** ./~/redux/lib/utils/warning.js ***!
   \**************************************/
@@ -23096,7 +22780,7 @@
 	}
 
 /***/ },
-/* 190 */
+/* 185 */
 /*!*******************************************!*\
   !*** ./~/redux/lib/bindActionCreators.js ***!
   \*******************************************/
@@ -23155,7 +22839,7 @@
 	}
 
 /***/ },
-/* 191 */
+/* 186 */
 /*!****************************************!*\
   !*** ./~/redux/lib/applyMiddleware.js ***!
   \****************************************/
@@ -23169,7 +22853,7 @@
 	
 	exports['default'] = applyMiddleware;
 	
-	var _compose = __webpack_require__(/*! ./compose */ 192);
+	var _compose = __webpack_require__(/*! ./compose */ 187);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
@@ -23221,7 +22905,7 @@
 	}
 
 /***/ },
-/* 192 */
+/* 187 */
 /*!********************************!*\
   !*** ./~/redux/lib/compose.js ***!
   \********************************/
@@ -23267,7 +22951,7 @@
 	}
 
 /***/ },
-/* 193 */
+/* 188 */
 /*!************************************!*\
   !*** ./~/redux-thunk/lib/index.js ***!
   \************************************/
@@ -23298,7 +22982,276 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 194 */
+/* 189 */
+/*!***********************************************************!*\
+  !*** ./src/client/app/components/CreateOrderComponent.js ***!
+  \***********************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _actions = __webpack_require__(/*! ../actions/actions */ 190);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var initialState = { user: '', ticket: '', payment: '', price: '' };
+	
+	var CreateOrderComponent = function (_React$Component) {
+	    _inherits(CreateOrderComponent, _React$Component);
+	
+	    function CreateOrderComponent(props) {
+	        _classCallCheck(this, CreateOrderComponent);
+	
+	        var _this = _possibleConstructorReturn(this, (CreateOrderComponent.__proto__ || Object.getPrototypeOf(CreateOrderComponent)).call(this, props));
+	
+	        _this.state = initialState;
+	        return _this;
+	    }
+	
+	    _createClass(CreateOrderComponent, [{
+	        key: 'handleSubmit',
+	        value: function handleSubmit(event) {
+	            this.props.store.dispatch((0, _actions.openOrder)(this.state.user, this.state.ticket, this.state.payment, this.state.price));
+	
+	            this.price_input.value = "";
+	            this.user_input.value = "";
+	            this.ticket_input.value = "";
+	            this.payment_input.value = "";
+	
+	            this.ticket_input.disabled = false;
+	            this.payment_input.disabled = false;
+	
+	            this.setState(initialState);
+	        }
+	    }, {
+	        key: 'handleChange',
+	        value: function handleChange(property, event) {
+	            var change = {};
+	            var value = event.target.value;
+	
+	            if (property == 'ticket') {
+	                if (value.length > 0) {
+	                    document.getElementById('input-payment').disabled = true;
+	                } else {
+	                    document.getElementById('input-payment').disabled = false;
+	                }
+	            } else if (property == 'payment') {
+	                if (value.length > 0) {
+	                    document.getElementById('input-ticket').disabled = true;
+	                } else {
+	                    document.getElementById('input-ticket').disabled = false;
+	                }
+	            }
+	
+	            change[property] = value;
+	
+	            this.setState(change);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { id: 'create-order' },
+	                _react2.default.createElement(
+	                    'h2',
+	                    null,
+	                    'CREATE ORDER'
+	                ),
+	                _react2.default.createElement(
+	                    'table',
+	                    null,
+	                    _react2.default.createElement(
+	                        'tbody',
+	                        null,
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                'Price:'
+	                            ),
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                _react2.default.createElement('input', { id: 'input-price', type: 'number', onChange: this.handleChange.bind(this, 'price'), ref: function ref(input) {
+	                                        return _this2.price_input = input;
+	                                    } })
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                'Ticket:'
+	                            ),
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                _react2.default.createElement('input', { id: 'input-ticket', type: 'text', onChange: this.handleChange.bind(this, 'ticket'), ref: function ref(input) {
+	                                        return _this2.ticket_input = input;
+	                                    } })
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                'Payment:'
+	                            ),
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                _react2.default.createElement('input', { id: 'input-payment', type: 'text', onChange: this.handleChange.bind(this, 'payment'), ref: function ref(input) {
+	                                        return _this2.payment_input = input;
+	                                    } })
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                'User:'
+	                            ),
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                _react2.default.createElement('input', { id: 'input-user', type: 'text', onChange: this.handleChange.bind(this, 'user'), ref: function ref(input) {
+	                                        return _this2.user_input = input;
+	                                    } })
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { onClick: this.handleSubmit.bind(this) },
+	                                    'Submit'
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return CreateOrderComponent;
+	}(_react2.default.Component);
+	
+	exports.default = CreateOrderComponent;
+
+/***/ },
+/* 190 */
+/*!*******************************************!*\
+  !*** ./src/client/app/actions/actions.js ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.openOrder = openOrder;
+	exports.fillOrder = fillOrder;
+	exports.deleteOrder = deleteOrder;
+	exports.editOrder = editOrder;
+	// Opening a order
+	// Filling a order
+	// Deleting an order
+	// Editing an order
+	
+	var OPEN_ORDER = exports.OPEN_ORDER = 'OPEN_ORDER';
+	var FILL_ORDER = exports.FILL_ORDER = 'FILL_ORDER';
+	var DELETE_ORDER = exports.DELETE_ORDER = 'DELETE_ORDER';
+	var EDIT_ORDER = exports.EDIT_ORDER = 'EDIT_ORDER';
+	
+	// {
+	//     Type: “Open”, “Fill”, “Delete”, or “Edit”
+	// 	User: <user-id>
+	//         Order: <order-id>
+	//         Field: (for Edit) <string> the field of the order that is being changed
+	//         Change: (for Edit) <string or int or float> the value that the Field should be changed to
+	//             Ticket: (for Fill or Open) <ticket-id> required to fill a buy order or open a sell order
+	//                 Payment: (for Fill or Open) <payment-id> required to open a buy order or fill a sell order
+	//                     }
+	
+	
+	function openOrder(user_id, ticket_id, payment_id, price) {
+	    return {
+	        type: OPEN_ORDER,
+	        payload: {
+	            user_id: user_id,
+	            ticket_id: ticket_id,
+	            payment_id: payment_id,
+	            price: price
+	
+	        }
+	    };
+	}
+	
+	function fillOrder(user_id, order_id) {
+	    return {
+	        type: FILL_ORDER,
+	        payload: {
+	            user_id: user_id,
+	            order_id: order_id
+	        }
+	    };
+	}
+	
+	function deleteOrder(order) {
+	    return {
+	        type: DELETE_ORDER,
+	        payload: {
+	            order: order
+	        }
+	    };
+	}
+	
+	function editOrder(order, field, newValue) {
+	    return {
+	        type: EDIT_ORDER,
+	        payload: {
+	            order: order,
+	            field: field,
+	            newValue: newValue
+	        }
+	    };
+	}
+
+/***/ },
+/* 191 */
 /*!**********************************************************!*\
   !*** ./src/client/app/components/OpenOrdersComponent.js ***!
   \**********************************************************/
@@ -23315,6 +23268,8 @@
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _util = __webpack_require__(/*! ../util */ 192);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23341,21 +23296,14 @@
 	    _createClass(OpenOrdersComponent, [{
 	        key: 'storeChanged',
 	        value: function storeChanged() {
-	            console.log("STORE CHANGED");
-	
 	            var orders = this.props.store.getState().orders;
 	            var user = 'user1';
 	
 	            var user_orders = orders.filter(function (order) {
-	                console.log("ORDER");
-	                console.log(order.user == user);
-	
-	                return order.user == user;
+	                return order.user_id == user;
 	            });
 	
 	            this.setState({ openOrders: user_orders });
-	
-	            console.log(this.state);
 	        }
 	    }, {
 	        key: 'render',
@@ -23367,12 +23315,17 @@
 	                    _react2.default.createElement(
 	                        'td',
 	                        null,
-	                        order.user
+	                        order.user_id
 	                    ),
 	                    _react2.default.createElement(
 	                        'td',
 	                        null,
-	                        order.ticket
+	                        order.price
+	                    ),
+	                    _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        (0, _util.getOrderType)(order)
 	                    )
 	                );
 	            });
@@ -23402,6 +23355,153 @@
 	}(_react2.default.Component);
 	
 	exports.default = OpenOrdersComponent;
+
+/***/ },
+/* 192 */
+/*!********************************!*\
+  !*** ./src/client/app/util.js ***!
+  \********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.getOrderType = getOrderType;
+	
+	var _validators = __webpack_require__(/*! ./validators */ 193);
+	
+	function getOrderType(order) {
+	    console.log("GET ORDER TYPE");
+	    console.log(order);
+	    if (!(0, _validators.isValidOrder)(order)) {
+	        return "";
+	    }
+	
+	    if (order.payment_id.length > 0 && order.ticket_id.length == 0) {
+	        return "BUY";
+	    } else if (order.ticket_id.length > 0 && order.payment_id.length == 0) {
+	        return "SELL";
+	    }
+	}
+
+/***/ },
+/* 193 */
+/*!**************************************!*\
+  !*** ./src/client/app/validators.js ***!
+  \**************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.isValidOrder = isValidOrder;
+	exports.isPropertyUndefinedOrEmpty = isPropertyUndefinedOrEmpty;
+	function isValidOrder(order) {
+	    // if (!("type" in order && "price" in order && "user" in order && ("payment" in order || "ticket" in order))){
+	    //     return false;
+	    // }
+	    //
+	    // if (("payment" in order && "ticket" in order) || (!("payment" in order) && !("ticket" in order))){ //If buy order and sell order or neither
+	    //     return false;
+	    // }
+	    //
+	    // if(isPropertyUndefinedOrEmpty(order, "price"))
+	
+	    return true;
+	}
+	
+	function isPropertyUndefinedOrEmpty(object, property) {
+	    if (!(property in object)) {
+	        return false;
+	    }
+	
+	    if (object[property].length <= 0) {
+	        return false;
+	    }
+	
+	    return true;
+	}
+
+/***/ },
+/* 194 */
+/*!*********************************************!*\
+  !*** ./src/client/app/reducers/reducers.js ***!
+  \*********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _actions = __webpack_require__(/*! ../actions/actions */ 190);
+	
+	var _validators = __webpack_require__(/*! ../validators */ 193);
+	
+	var _redux = __webpack_require__(/*! redux */ 173);
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	// TODO - validate actions
+	// TODO - create order model
+	// TODO - generate UUIDs for orders
+	
+	function orders() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	    var action = arguments[1];
+	
+	    var payload = action.payload;
+	    switch (action.type) {
+	        case _actions.OPEN_ORDER:
+	            var newOrder = {};
+	            newOrder['user_id'] = payload.user_id;
+	            newOrder['price'] = payload.price;
+	            newOrder['payment_id'] = payload.payment_id;
+	            newOrder['ticket_id'] = payload.ticket_id;
+	
+	            if ((0, _validators.isValidOrder)(newOrder)) {
+	                return [].concat(_toConsumableArray(state), [newOrder]);
+	            } else {
+	                return state;
+	            }
+	
+	        case _actions.FILL_ORDER:
+	            return state.map(function (order, index) {
+	                if (order.id != payload.order) {
+	                    return Object.assign({}, order);
+	                }
+	            });
+	
+	        case _actions.DELETE_ORDER:
+	            return state.map(function (order, index) {
+	                if (order.id != payload.order) {
+	                    return Object.assign({}, order);
+	                }
+	            });
+	
+	        case _actions.EDIT_ORDER:
+	            return state.map(function (order, index) {
+	                if (order.id == payload.order) {
+	                    var change = {};
+	                    change[payload.field] = payload.change;
+	                    return Object.assign({}, order, change);
+	                }
+	            });
+	        default:
+	            return state;
+	    }
+	}
+	
+	var exchange = (0, _redux.combineReducers)({
+	    orders: orders
+	});
+	
+	exports.default = exchange;
 
 /***/ }
 /******/ ]);
