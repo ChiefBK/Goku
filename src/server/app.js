@@ -1,15 +1,26 @@
 import Express from 'express';
 import Path from 'path';
+import Morgan from 'morgan';
 
-console.log("testetetste");
+let App = Express();
+let Router = Express.Router();
 
-let app = Express();
+Router.use(Morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
-app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
+Router.use(Express.static(Path.resolve(__dirname, '../..', 'public')));
+
+let allRequestNumber = 0;
+
+Router.get('*', (req, res) => {
+    const indexPath = Path.resolve(__dirname, '../..', 'public', 'index.html');
+    console.log("IndexPath: " + indexPath);
+    res.sendFile(indexPath);
 });
 
-app.listen(7777, 'localhost', function(err) {
+
+App.use(Router);
+
+App.listen(7777, function(err) {
     if (err) {
         console.log(err);
         return;

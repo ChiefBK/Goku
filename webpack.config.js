@@ -9,7 +9,7 @@ var MATERIALIZE_DIR = path.resolve(__dirname, 'node_modules/materialize-css');
 var config = {
     entry: APP_DIR + '/index.jsx',
     output: {
-        path: BUILD_DIR,
+        path: BUILD_DIR + '/static',
         filename: 'bundle.js'
     },
     module: {
